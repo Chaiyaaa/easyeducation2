@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                //Intent module = new Intent(getApplicationContext(), Module.class);
-                Intent module = new Intent(getApplicationContext(), FragmentsHolder.class);
+                Intent module = new Intent(getApplicationContext(), inscription.class);
                startActivity(module);
 
                // Intent inscription = new Intent(getApplicationContext(), inscription.class);
