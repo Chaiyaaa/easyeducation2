@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".FragmentsHolder"
+            android:exported="false" />
+        <activity
             android:name=".Test"
             android:exported="false" />
         <activity
@@ -21,7 +24,9 @@
         <activity android:name=".Module" />
         <activity android:name=".inscription" />
         <activity android:name=".connexion" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

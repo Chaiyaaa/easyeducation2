@@ -3,11 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19519927536231885" />
+        <entry key="app/src/main/res/drawable/icon_affichage.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/icon_cour.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/icon_devoir.xml" value="0.2385" />
+        <entry key="app/src/main/res/drawable/icon_test.xml" value="0.2385" />
+        <entry key="app/src/main/res/layout/activity_fragments_holder.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/connexion.xml" value="0.22010869565217392" />
         <entry key="app/src/main/res/layout/devoirs.xml" value="0.22010869565217392" />
+        <entry key="app/src/main/res/layout/fragment_affichage.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_cour.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/fragment_devoir.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/fragment_test.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/inscription.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/module.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/singlerow.xml" value="0.22010869565217392" />
         <entry key="app/src/main/res/layout/test.xml" value="0.22010869565217392" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.284375" />
       </map>
     </option>
   </component>

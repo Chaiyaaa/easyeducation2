@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nav_cours"
+        android:icon="@drawable/icon_cour"
+        android:title="Cours"
+        />
+
+
+    <item
+        android:id="@+id/nav_devoir"
+        android:icon="@drawable/icon_devoir"
+        android:title="Devoirs"
+        />
+
+    <item
+        android:id="@+id/nav_test"
+        android:icon="@drawable/icon_test"
+        android:title="Test"
+        />
+
+    <item
+        android:id="@+id/nav_affichage"
+        android:icon="@drawable/icon_affichage"
+        android:title="Affichage"
+        />
+</menu>
