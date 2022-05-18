@@ -21,7 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class inscription extends AppCompatActivity {
  private TextView signin;
- private EditText username;
+ private EditText nom;
+ private EditText prenom;
  private EditText email;
  private EditText password;
  private RadioButton var_prof;
@@ -46,7 +47,8 @@ public class inscription extends AppCompatActivity {
 
 
 
-        username= findViewById(R.id.username);
+        nom= findViewById(R.id.nom);
+        prenom=findViewById(R.id.prenom);
         email= findViewById(R.id.mail);
         password= findViewById(R.id.password);
         var_etudiant = findViewById(R.id.var_etudiant);
@@ -73,7 +75,7 @@ public class inscription extends AppCompatActivity {
             public void onClick(View view) {
 
                 //if clicked variable==1
-                Sname=username.toString();
+                Sname=nom.toString();
                 Semail= email.toString();
                 Spassword=password.toString();
                 if (var_etudiant.isChecked()) type=1;
@@ -88,14 +90,23 @@ public class inscription extends AppCompatActivity {
                     passion=1;
                 }
 
-
-                    username.setError("");
-                    email.setError("");//add your error msg
-                    password.setError("");
-
-
-
-                User newUser=new User(username.getText().toString(),password.getText().toString(),email.getText().toString(),2);
+if (nom.getText().toString().isEmpty())
+{
+                    nom.setError(""); //define your error msg
+}
+if (prenom.getText().toString().isEmpty())
+{
+                     prenom.setError("");
+}
+if (email.getText().toString().isEmpty())
+{
+    email.setError("");
+}
+if (password.getText().toString().isEmpty())
+{
+password.setError("");
+}
+                User newUser=new User(nom.getText().toString(),prenom.getText().toString(),password.getText().toString(),email.getText().toString(),passion);
                 root.push().setValue(newUser);
 
 
