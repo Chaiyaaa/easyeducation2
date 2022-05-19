@@ -94,21 +94,30 @@ if (nom.getText().toString().isEmpty())
 {
                     nom.setError(""); //define your error msg
 }
-if (prenom.getText().toString().isEmpty())
+else if (prenom.getText().toString().isEmpty())
 {
                      prenom.setError("");
 }
-if (email.getText().toString().isEmpty())
+else if (email.getText().toString().isEmpty())
 {
     email.setError("");
 }
-if (password.getText().toString().isEmpty())
+else if (password.getText().toString().isEmpty())
 {
 password.setError("");
 }
-                User newUser=new User(nom.getText().toString(),prenom.getText().toString(),password.getText().toString(),email.getText().toString(),passion);
-                root.push().setValue(newUser);
+else
+{
 
+                User newUser=new User(nom.getText().toString(),prenom.getText().toString(),password.getText().toString(),email.getText().toString(),passion);
+                root.push().setValue(newUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        Toast.makeText(getApplicationContext(),"Data saved successfully",Toast.LENGTH_SHORT).show();
+                    }
+                });
+}
 
 
 

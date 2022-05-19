@@ -15,6 +15,7 @@
         android:textColor="#FFF"
         android:textColorHint="#FFF"
         android:textSize="25dp"
+        android:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
@@ -31,6 +32,7 @@
         android:textColor="#FFF"
         android:textColorHint="#FFF"
         android:textSize="25dp"
+        android:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.796"
@@ -52,6 +54,7 @@
         android:textColor="#FFF"
         android:textColorHint="#FFF"
         android:textSize="25dp"
+        android:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -109,6 +112,7 @@
         android:textColor="#FFF"
         android:textColorHint="#FFF"
         android:textSize="25dp"
+        android:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -125,6 +129,7 @@
         android:layout_marginLeft="72dp"
         android:layout_marginEnd="71dp"
         android:layout_marginRight="71dp"
+        android:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -146,6 +151,7 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/orange"
         app:layout_constraintVertical_bias="0.801">
 
         <RadioButton
@@ -153,16 +159,20 @@
             android:layout_width="match_parent"
             android:layout_height="49dp"
             android:text="Je suis un professeur."
-
+            android:buttonTint="@color/orange"
+            android:checked="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#fff" />
 
         <RadioButton
+
             android:id="@+id/var_etudiant"
             android:layout_width="match_parent"
             android:layout_height="52dp"
+            android:backgroundTint="@color/orange"
             android:text="Je suis un(e) etudiant(e)."
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:buttonTint="@color/orange"
             android:textColor="#fff" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
