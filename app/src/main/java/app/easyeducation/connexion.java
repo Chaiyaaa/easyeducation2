@@ -109,7 +109,7 @@ public class connexion extends AppCompatActivity {
                     else
                     {
                         //email not found
-                        Toast.makeText(connexion.this,"false info",Toast.LENGTH_LONG); //change error msg
+                        Toast.makeText(connexion.this,"false info",Toast.LENGTH_LONG).show(); //change error msg
                        // mail.setError("Wrong email");
                     }
                 }

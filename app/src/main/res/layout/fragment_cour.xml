@@ -42,7 +42,7 @@
         app:srcCompat="@drawable/menuicon" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewCour"
         android:layout_width="409dp"
         android:layout_height="615dp"
         android:layout_marginStart="1dp"
