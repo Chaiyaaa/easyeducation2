@@ -37,7 +37,8 @@ public class inscription extends AppCompatActivity {
     String Spassword;
     int type;
 
- private FirebaseDatabase db=FirebaseDatabase.getInstance();
+
+    private FirebaseDatabase db=FirebaseDatabase.getInstance();
  private DatabaseReference root=db.getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("Users");
 
     @Override

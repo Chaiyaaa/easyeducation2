@@ -81,6 +81,7 @@ public class connexion extends AppCompatActivity {
         mail.setError(null); //we get rid of the error msg if exist
         password.setError(null);
 
+
         //firebase reference
         DatabaseReference reference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/");
         reference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -109,8 +110,8 @@ public class connexion extends AppCompatActivity {
                     else
                     {
                         //email not found
-                        Toast.makeText(connexion.this,"false info",Toast.LENGTH_LONG); //change error msg
-                       // mail.setError("Wrong email");
+                        Toast.makeText(connexion.this,"false info",Toast.LENGTH_LONG).show(); //change error msg
+                      // mail.setError("Wrong email");
                     }
                 }
 
