@@ -51,9 +51,13 @@ public class inscription extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
+                this is a test
 
-
-                Intent connexion = new Intent(getApplicationContext(), connexion.class);
+                Cour cour=new Cour("algo1","23:22","gsojghsipuoghjw","algo");
+                DatabaseReference cours = db.getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("Cours");
+                cours.push().setValue(cour);*/
+                Intent connexion = new Intent(getApplicationContext(), AddNewCour.class);
                 startActivity(connexion);
 
             }

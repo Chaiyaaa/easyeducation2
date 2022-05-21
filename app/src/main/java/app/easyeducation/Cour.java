@@ -5,11 +5,13 @@ public class Cour {
     public String nom;
     public String date;
     public String lien;
+    public String module;
 
-    public Cour(String nom, String date, String lien) {
+    public Cour(String nom, String date, String lien,String module) {
         this.nom = nom;
         this.date = date;
         this.lien = lien;
+        this.module= module;
     }
 
     public Cour() {
@@ -39,12 +41,21 @@ public class Cour {
         this.lien = lien;
     }
 
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
+    }
+
     @Override
     public String toString() {
         return "Cour{" +
                 "nom='" + nom + '\'' +
                 ", date='" + date + '\'' +
                 ", lien='" + lien + '\'' +
+                ", module='" + module + '\'' +
                 '}';
     }
 }
