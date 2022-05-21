@@ -22,12 +22,18 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class AddNewCour extends AppCompatActivity {
 
     EditText module_name,cour_name;
-    Button add;
+    Button add,share;
     StorageReference storageReference;
     DatabaseReference databaseReference;
+    Intent dataHolder;
 
 
     @Override
@@ -43,6 +49,15 @@ public class AddNewCour extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Selectpdf();
+            }
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //disable button if there is no data
+                //add icon to show that data exists
+                UploadPDFToFirebase(dataHolder.getData());
             }
         });
 
@@ -62,8 +77,9 @@ public class AddNewCour extends AppCompatActivity {
 
         if (requestCode==12 && resultCode==RESULT_OK && data!=null && data.getData()!=null)
         {
+            dataHolder=data;
             
-            UploadPDFToFirebase(data.getData());
+          //  UploadPDFToFirebase(data.getData());
         }
     }
 
@@ -81,10 +97,11 @@ public class AddNewCour extends AppCompatActivity {
                 while (!uriTask.isComplete());
                 Uri uri=uriTask.getResult();
 
+                String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
-                Cour cour=new Cour("newcour","90:99",uri.toString(),"algo"); //change this
+                Cour cour=new Cour(cour_name.getText().toString(),currentDate,uri.toString(),module_name.getText().toString()); //change this
                 databaseReference.push().setValue(cour);
-                Toast.makeText(getApplicationContext(),"Succes",Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(),"Succes",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
 
 
@@ -104,5 +121,6 @@ public class AddNewCour extends AppCompatActivity {
         module_name=findViewById(R.id.module_name);
         cour_name=findViewById(R.id.cours_title);
         add=findViewById(R.id.add_file);
+        share=findViewById(R.id.share);
     }
 }
