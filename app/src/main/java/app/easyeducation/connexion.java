@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -73,8 +75,8 @@ public class connexion extends AppCompatActivity {
 
         //getting Strings from Editexts
 
-        String gmailEntered =mail.getText().toString();
-        String passwordEnterd=password.getText().toString();
+        String gmailEntered =mail.getText().toString().trim();
+        String passwordEnterd=password.getText().toString().trim();
 
 
 
@@ -97,7 +99,32 @@ public class connexion extends AppCompatActivity {
                         //correct email, we check password
                         if (snap.child("password").getValue().toString().equals(passwordEnterd))
                         {
-                            openMainActivity();
+
+                            String emptyword="type";
+                            Intent intent=new Intent(connexion.this,FragmentsHolder.class);
+                            //verf
+                            if (snap.child("type").getValue().toString().equals("1"))
+                            {
+                               //saving data to sharedPref
+
+                                SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                SharedPreferences.Editor editor=sharedPreferences.edit();
+
+                                editor.putString("type","etud");  //key == type
+                                editor.apply();
+
+
+                            }
+                            else
+                            {
+                                SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                SharedPreferences.Editor editor=sharedPreferences.edit();
+
+                                editor.putString("type","prof");  //key == type
+                                editor.apply();
+                            }
+                            startActivity(intent);
+                            finish();
                         }
                         else
                         {
@@ -109,10 +136,11 @@ public class connexion extends AppCompatActivity {
                     else
                     {
                         //email not found
-                        Toast.makeText(connexion.this,"false info",Toast.LENGTH_LONG).show(); //change error msg
+                        //Toast.makeText(connexion.this,"false info",Toast.LENGTH_LONG).show(); //change error msg
                        // mail.setError("Wrong email");
                     }
                 }
+
 
             }
 
@@ -124,11 +152,7 @@ public class connexion extends AppCompatActivity {
 
     }
 
-    private void openMainActivity() {
-        Intent intent=new Intent(connexion.this,FragmentsHolder.class);
-        startActivity(intent);
-        finish();
-    }
+
 
 
 }

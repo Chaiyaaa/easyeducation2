@@ -57,7 +57,7 @@ public class inscription extends AppCompatActivity {
                 Cour cour=new Cour("algo1","23:22","gsojghsipuoghjw","algo");
                 DatabaseReference cours = db.getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("Cours");
                 cours.push().setValue(cour);*/
-                Intent connexion = new Intent(getApplicationContext(), AddNewCour.class);
+                Intent connexion = new Intent(getApplicationContext(), connexion.class);
                 startActivity(connexion);
 
             }

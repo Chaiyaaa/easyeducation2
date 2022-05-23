@@ -30,7 +30,7 @@ import java.util.Locale;
 public class AddNewCour extends AppCompatActivity {
 
     EditText module_name,cour_name;
-    Button add,share;
+    Button add,share,cancel;
     StorageReference storageReference;
     DatabaseReference databaseReference;
     Intent dataHolder;
@@ -61,6 +61,21 @@ public class AddNewCour extends AppCompatActivity {
             }
         });
 
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goBacktoCour();
+            }
+        });
+
+    }
+
+    private void goBacktoCour() {
+
+        Intent intent=new Intent(AddNewCour.this,CourFragment.class);
+        startActivity(intent);
+        finish();
     }
 
     private void Selectpdf() {
@@ -78,8 +93,7 @@ public class AddNewCour extends AppCompatActivity {
         if (requestCode==12 && resultCode==RESULT_OK && data!=null && data.getData()!=null)
         {
             dataHolder=data;
-            
-          //  UploadPDFToFirebase(data.getData());
+
         }
     }
 
@@ -122,5 +136,6 @@ public class AddNewCour extends AppCompatActivity {
         cour_name=findViewById(R.id.cours_title);
         add=findViewById(R.id.add_file);
         share=findViewById(R.id.share);
+        cancel=findViewById(R.id.cancel);
     }
 }
