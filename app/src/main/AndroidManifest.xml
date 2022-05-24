@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AddNewTest"
+            android:exported="false" />
+        <activity
             android:name=".AddNewDevoir"
             android:exported="false" />
         <activity
@@ -22,15 +25,8 @@
             android:name=".FragmentsHolder"
             android:exported="false" />
         <activity
-            android:name=".Test"
-            android:exported="false" />
-        <activity
-            android:name=".Devoirs"
-            android:exported="false" />
-        <activity
             android:name=".singlerow"
             android:exported="false" />
-        <activity android:name=".Module" />
         <activity android:name=".inscription" />
         <activity android:name=".connexion" />
         <activity

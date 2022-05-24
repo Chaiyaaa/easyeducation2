@@ -1,43 +1,61 @@
 package app.easyeducation;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class Test {
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+    public String nom;
+    public String date;
+    public String lien;
+    public String module;
 
-public class Test extends AppCompatActivity {
-
-    private Button module;
-    private Button devoirs;
-    private Button post;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
-
-        this.module = findViewById(R.id.module_intLight);
-        module.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent Module = new Intent(getApplicationContext(),Module.class);
-                startActivity(Module);
-                finish();
-            }
-        });
-
-        this.devoirs = findViewById(R.id.devoir_intLight);
-        module.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent Devoirs = new Intent(getApplicationContext(),Module.class);
-                startActivity(Devoirs);
-                finish();
-            }
-        });
-
+    public Test(String nom, String date, String lien, String module) {
+        this.nom = nom;
+        this.date = date;
+        this.lien = lien;
+        this.module = module;
     }
 
+    public Test() {
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getLien() {
+        return lien;
+    }
+
+    public void setLien(String lien) {
+        this.lien = lien;
+    }
+
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
+    }
+
+    @Override
+    public String toString() {
+        return "Test{" +
+                "nom='" + nom + '\'' +
+                ", date='" + date + '\'' +
+                ", lien='" + lien + '\'' +
+                ", module='" + module + '\'' +
+                '}';
+    }
 }

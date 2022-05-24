@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/drawable/icon_test.xml" value="0.2385" />
         <entry key="app/src/main/res/layout/activity_add_new_cour.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_add_new_devoir.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/activity_add_new_test.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_fragments_holder.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/connexion.xml" value="0.22010869565217392" />
@@ -22,6 +23,7 @@
         <entry key="app/src/main/res/layout/inscription.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/itemcour.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/itemdevoir.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/itemtest.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/module.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/singlerow.xml" value="0.2" />
         <entry key="app/src/main/res/layout/test.xml" value="0.22010869565217392" />

@@ -48,14 +48,37 @@ public class DevoirFragment extends Fragment {
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
         SharedPreferences.Editor editor=sharedPreferences.edit();
 
+        if (sharedPreferences.contains("type"))
+        {
 
-        post.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),AddNewDevoir.class);
-                startActivity(intent);
+            type=sharedPreferences.getString("type",""); //second is empty cause its the default for String
+            if (type.equals("etud"))
+            {
+                //we need to hide the btn
+                //Toast.makeText(getActivity(),"etud",Toast.LENGTH_SHORT).show();
             }
-        });
+            else if (type.equals("prof"))
+            {
+
+
+                post.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent=new Intent(getActivity(),AddNewDevoir.class);
+                        startActivity(intent);
+
+                    }
+                });
+
+
+
+
+            }
+
+        }
+
+
 
 
 

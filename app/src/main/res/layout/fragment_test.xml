@@ -38,7 +38,7 @@
         app:srcCompat="@drawable/menuicon" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewtest"
         android:layout_width="409dp"
         android:layout_height="615dp"
         android:layout_marginStart="1dp"
@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/posttest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="252dp"

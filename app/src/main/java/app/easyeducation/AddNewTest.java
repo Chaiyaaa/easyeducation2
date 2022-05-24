@@ -26,8 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class AddNewDevoir extends AppCompatActivity {
-
+public class AddNewTest extends AppCompatActivity {
     EditText module_name,cour_name;
     Button add,share,cancel;
     StorageReference storageReference;
@@ -37,13 +36,15 @@ public class AddNewDevoir extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_new_devoir);
+        setContentView(R.layout.activity_add_new_test);
+
+
 
 
         initWidget();
 
         storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("Devoirs");
+        databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("Tests");
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +59,7 @@ public class AddNewDevoir extends AppCompatActivity {
                 //disable button if there is no data
                 //add icon to show that data exists
                 UploadPDFToFirebase(dataHolder.getData());
-                goBacktoCour();
+
             }
         });
 
@@ -70,18 +71,26 @@ public class AddNewDevoir extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 
 
 
 
 
+    private void initWidget() {
+        module_name=findViewById(R.id.module_nameT);
+        cour_name=findViewById(R.id.cours_titleT);
+        add=findViewById(R.id.add_fileT);
+        share=findViewById(R.id.shareT);
+        cancel=findViewById(R.id.cancelT);
+    }
+
+
+
+
     private void goBacktoCour() {
 
-        Intent intent=new Intent(AddNewDevoir.this,FragmentsHolder.class);
+        Intent intent=new Intent(AddNewTest.this,FragmentsHolder.class);
         startActivity(intent);
         finish();
     }
@@ -110,7 +119,7 @@ public class AddNewDevoir extends AppCompatActivity {
         progressDialog.setTitle("file is loading ...");
         progressDialog.show();
 
-        StorageReference reference=storageReference.child("Devoir"+System.currentTimeMillis()+".pdf");
+        StorageReference reference=storageReference.child("Test "+System.currentTimeMillis()+".pdf");
         reference.putFile(data).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -121,11 +130,13 @@ public class AddNewDevoir extends AppCompatActivity {
 
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
-                Devoir devoir=new Devoir(cour_name.getText().toString(),currentDate,uri.toString(),module_name.getText().toString());
 
-                databaseReference.push().setValue(devoir);
+                Test test=new Test(cour_name.getText().toString(),currentDate,uri.toString(),module_name.getText().toString());
+
+                databaseReference.push().setValue(test);
                 Toast.makeText(getApplicationContext(),"Succes",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
+                goBacktoCour();
 
 
             }
@@ -137,16 +148,4 @@ public class AddNewDevoir extends AppCompatActivity {
                 progressDialog.setMessage("file Uploaded .. "+(int) progress+"%");
             }
         });
-
-    }
-
-
-    private void initWidget() {
-
-        module_name=findViewById(R.id.module_nameD);
-        cour_name=findViewById(R.id.cours_titleD);
-        add=findViewById(R.id.add_fileD);
-        share=findViewById(R.id.shareD);
-        cancel=findViewById(R.id.cancelD);
-    }
-}
+}}
