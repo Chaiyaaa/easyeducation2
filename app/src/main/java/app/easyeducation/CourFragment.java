@@ -92,6 +92,8 @@ public class CourFragment extends Fragment {
         adapter =new CourAdapter(getActivity(),cours);
         coursListview.setAdapter(adapter);
 
+
+
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
