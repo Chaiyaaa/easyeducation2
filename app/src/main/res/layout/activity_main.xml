@@ -75,18 +75,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.169" />
 
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="81dp"
-        android:layout_height="22dp"
-        android:text="light"
-        android:textColor="@color/backgroundlight"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.115"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.086" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
