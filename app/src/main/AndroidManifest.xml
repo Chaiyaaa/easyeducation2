@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AddNewAffichage"
+            android:exported="false" />
+        <activity
             android:name=".AddNewTest"
             android:exported="false" />
         <activity
