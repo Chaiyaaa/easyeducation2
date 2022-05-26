@@ -18,6 +18,9 @@ public class TestAnswer {
         this.lien = lien;
     }
 
+    public TestAnswer() {
+    }
+
     public String getNomtest() {
         return nomtest;
     }

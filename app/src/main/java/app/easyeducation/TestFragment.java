@@ -68,7 +68,8 @@ public class TestFragment extends Fragment implements RecycleViewInterface{
             else if (type.equals("prof"))
             {
 
-
+                post.setVisibility(View.VISIBLE);
+                inbox.setVisibility(View.VISIBLE);
                 post.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -138,14 +139,16 @@ public class TestFragment extends Fragment implements RecycleViewInterface{
         showtest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"tests",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getActivity(),DiplayTestAnswers.class);
+                startActivity(intent);
             }
         });
 
         showdevoirs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"devoirs",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getActivity(),DisplayDevoirAnswers.class);
+                startActivity(intent);
             }
         });
         dialog.show();

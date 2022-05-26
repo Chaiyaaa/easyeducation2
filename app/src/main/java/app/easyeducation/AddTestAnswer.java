@@ -55,6 +55,8 @@ public class AddTestAnswer extends AppCompatActivity {
         usernom=sharedPreferences.getString("nomuser","");
         userprenom=sharedPreferences.getString("prenomuser","");
 
+
+        Toast.makeText(getApplicationContext(),usernom,Toast.LENGTH_LONG).show();
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("TestAnswers");
 
@@ -109,7 +111,7 @@ public class AddTestAnswer extends AppCompatActivity {
         progressDialog.setTitle("file is loading ...");
         progressDialog.show();
 
-        StorageReference reference=storageReference.child("Test "+System.currentTimeMillis()+".pdf");
+        StorageReference reference=storageReference.child("TestAnswer "+System.currentTimeMillis()+".pdf");
         reference.putFile(data).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -122,6 +124,7 @@ public class AddTestAnswer extends AppCompatActivity {
 
 
                 TestAnswer testAnswer=new TestAnswer(name,date,module,usernom,userprenom,uri.toString());
+
 
 
                 databaseReference.push().setValue(testAnswer);

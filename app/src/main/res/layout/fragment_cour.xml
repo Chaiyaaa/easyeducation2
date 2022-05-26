@@ -48,6 +48,7 @@
     <ImageView
         android:id="@+id/inbox_cour"
         android:layout_width="40dp"
+        android:visibility="invisible"
         android:layout_height="40dp"
         android:src="@drawable/ibox_icon"
         android:layout_margin="10dp"

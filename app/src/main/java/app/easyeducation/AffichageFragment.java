@@ -54,23 +54,50 @@ public class AffichageFragment extends Fragment implements RecycleViewInterface{
         SharedPreferences.Editor editor=sharedPreferences.edit();
 
 
-        post.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(getActivity(),AddNewAffichage.class);
-                startActivity(intent);
+        if (sharedPreferences.contains("type"))
+        {
+
+            type=sharedPreferences.getString("type",""); //second is empty cause its the default for String
+            if (type.equals("etud"))
+            {
+                //we need to hide the btn
+                //Toast.makeText(getActivity(),"etud",Toast.LENGTH_SHORT).show();
+            }
+            else if (type.equals("prof"))
+            {
+
+
+                post.setVisibility(View.VISIBLE);
+                inbox.setVisibility(View.VISIBLE);
+                post.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent =new Intent(getActivity(),AddNewAffichage.class);
+                        startActivity(intent);
+
+                    }
+                });;
+
+
+                inbox.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openDialog();
+                    }
+                });
+
+
 
             }
-        });
+
+        }
 
 
 
-        inbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialog();
-            }
-        });
+
+
+
+
 
 
         affichagelistview.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -118,14 +145,16 @@ public class AffichageFragment extends Fragment implements RecycleViewInterface{
         showtest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"tests",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getActivity(),DiplayTestAnswers.class);
+                startActivity(intent);
             }
         });
 
         showdevoirs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"devoirs",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getActivity(),DisplayDevoirAnswers.class);
+                startActivity(intent);
             }
         });
         dialog.show();

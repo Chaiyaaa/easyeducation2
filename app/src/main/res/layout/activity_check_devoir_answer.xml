@@ -5,48 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundblue"
-    tools:context=".TestCheck">
-
-
+    tools:context=".CheckDevoirAnswer">
 
 
     <TextView
-        android:id="@+id/testnamecheck"
+        android:id="@+id/answer_devoirname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="test name"
+        android:text="NomDevoir"
         android:textColor="@color/orange"
         android:textSize="25sp"
         android:textStyle="bold"
-
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/answer_completnameD"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eleve nom"
+        android:textColor="@color/orange"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer_devoirname" />
+
+
     <Button
-        android:id="@+id/downloadtest"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:text="Download"
+        android:id="@+id/downloadtestanswerD"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/download_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <Button
-        android:id="@+id/replytest"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
-
-        android:drawableLeft="@drawable/reply_icon"
-        android:background="@drawable/rounded_cornerlightblue"
-        android:text="Reponse"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        android:text="Download"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+         />
 </androidx.constraintlayout.widget.ConstraintLayout>

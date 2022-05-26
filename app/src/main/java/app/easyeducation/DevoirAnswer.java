@@ -18,6 +18,9 @@ public class DevoirAnswer {
         this.lien = lien;
     }
 
+    public DevoirAnswer() {
+    }
+
     public String getNomdevoir() {
         return nomdevoir;
     }

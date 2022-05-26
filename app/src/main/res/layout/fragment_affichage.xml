@@ -26,6 +26,7 @@
 
     <ImageView
         android:id="@+id/inbox_affichage"
+        android:visibility="invisible"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/ibox_icon"
@@ -53,6 +54,7 @@
 
     <Button
         android:id="@+id/postaffichage"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="252dp"

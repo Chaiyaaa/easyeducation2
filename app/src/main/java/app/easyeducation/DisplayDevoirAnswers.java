@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,19 +18,20 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DiplayTestAnswers extends AppCompatActivity {
+public class DisplayDevoirAnswers extends AppCompatActivity {
     DatabaseReference database;
     ListView listofAnswers;
-    List<TestAnswer> answers=new ArrayList<>();
+    List<DevoirAnswer> answers=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diplay_test_answers);
+        setContentView(R.layout.activity_display_devoir_answers);
 
-        listofAnswers =findViewById(R.id.listoftestanswers);
+
+        listofAnswers =findViewById(R.id.listofdevoirsanswers);
 
         setListAdapter();
-        database= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("TestAnswers");
+        database= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("DevoirAnswers");
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -39,7 +39,7 @@ public class DiplayTestAnswers extends AppCompatActivity {
 
                 for (DataSnapshot snap : snapshot.getChildren())
                 {
-                    TestAnswer answer=snap.getValue(TestAnswer.class);
+                    DevoirAnswer answer=snap.getValue(DevoirAnswer.class);
                     answers.add(answer);
                     setListAdapter();
                 }
@@ -54,24 +54,22 @@ public class DiplayTestAnswers extends AppCompatActivity {
         });
 
 
-
         listofAnswers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent=new Intent(getApplicationContext(),CheckTestAnswer.class);
-                intent.putExtra("Elevename",answers.get(i).getNom());
-                intent.putExtra("ElevePrenom",answers.get(i).getPrenom());
-                intent.putExtra("TestName",answers.get(i).getNomtest());
-                intent.putExtra("Link",answers.get(i).getLien());
+                Intent intent=new Intent(getApplicationContext(),CheckDevoirAnswer.class);
+                intent.putExtra("ElevenameD",answers.get(i).getNom());
+                intent.putExtra("ElevePrenomD",answers.get(i).getPrenom());
+                intent.putExtra("TestNameD",answers.get(i).getNomdevoir());
+                intent.putExtra("LinkD",answers.get(i).getLien());
                 startActivity(intent);
             }
         });
 
-
     }
 
     private void setListAdapter() {
-        TestAnswersAdapter adapter=new TestAnswersAdapter(getApplicationContext(),answers);
+        DevoirAnswersAdapter adapter=new DevoirAnswersAdapter(getApplicationContext(),answers);
         listofAnswers.setAdapter(adapter);
     }
 }
