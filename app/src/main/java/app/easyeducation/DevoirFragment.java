@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class DevoirFragment extends Fragment {
+public class DevoirFragment extends Fragment implements RecycleViewInterface{
     Button post;
     RecyclerView devoirlistview;
     DatabaseReference database;
@@ -86,7 +87,7 @@ public class DevoirFragment extends Fragment {
         devoirlistview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         devoir=new ArrayList<>();
-        adapter =new DevoirAdapter(getActivity(),devoir);
+        adapter =new DevoirAdapter(getActivity(),devoir,this);
         devoirlistview.setAdapter(adapter);
 
         database.addValueEventListener(new ValueEventListener() {
@@ -114,5 +115,25 @@ public class DevoirFragment extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void OnItemClick(int position) {
+
+
+        Intent intent=new Intent(getActivity(),DevoirsCheck.class);
+
+        Devoir selectedDevoir=devoir.get(position);
+
+
+
+        intent.putExtra("Devoirname",selectedDevoir.getNom());
+        intent.putExtra("Devoirdate",selectedDevoir.getDate());
+        intent.putExtra("DevoirLink",selectedDevoir.getLien());
+        intent.putExtra("DevoirModule",selectedDevoir.getModule());
+
+        startActivity(intent);
+
+
     }
 }

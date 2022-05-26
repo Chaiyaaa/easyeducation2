@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CourFragment extends Fragment {
+public class CourFragment extends Fragment implements RecycleViewInterface{
 
     RecyclerView coursListview;
     DatabaseReference database;
@@ -89,7 +89,7 @@ public class CourFragment extends Fragment {
         coursListview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         cours=new ArrayList<>();
-        adapter =new CourAdapter(getActivity(),cours);
+        adapter =new CourAdapter(getActivity(),cours,this);
         coursListview.setAdapter(adapter);
 
 
@@ -118,5 +118,23 @@ public class CourFragment extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void OnItemClick(int position) {
+
+
+        Intent intent=new Intent(getActivity(),CourCheck.class);
+        Cour selectedCour=cours.get(position); //getting selected cour from list
+
+        intent.putExtra("Courname",selectedCour.getNom());
+        intent.putExtra("Courdate",selectedCour.getDate());
+        intent.putExtra("CourLink",selectedCour.getLien());
+        intent.putExtra("CourModule",selectedCour.getModule());
+
+        startActivity(intent);
+
+
+
     }
 }

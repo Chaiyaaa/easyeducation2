@@ -15,20 +15,21 @@ public class AffichageAdapter extends RecyclerView.Adapter<AffichageAdapter.MyVi
 
 
 
-
+    private final RecycleViewInterface recycleViewInterface;
     Context context;
     ArrayList<Affichage> List;
 
-    public AffichageAdapter(Context context, ArrayList<Affichage> list) {
+    public AffichageAdapter(Context context, ArrayList<Affichage> list, RecycleViewInterface recycleViewInterface) {
         this.context = context;
         List = list;
+        this.recycleViewInterface=recycleViewInterface;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View v= LayoutInflater.from(context).inflate(R.layout.itemaffichage,parent,false);
-       return new MyViewHolder(v);
+       return new MyViewHolder(v,recycleViewInterface);
     }
 
     @Override
@@ -52,11 +53,25 @@ public class AffichageAdapter extends RecyclerView.Adapter<AffichageAdapter.MyVi
         TextView affichagename, affichagedate;
 
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface) {
 
             super(itemView);
             affichagename =itemView.findViewById(R.id.affichagename);
             affichagedate =itemView.findViewById(R.id.dateaffichage);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (recycleViewInterface != null)
+                    {
+                        int pos= getAdapterPosition();
+                        if (pos != RecyclerView.NO_POSITION)
+                        {
+                            recycleViewInterface.OnItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }

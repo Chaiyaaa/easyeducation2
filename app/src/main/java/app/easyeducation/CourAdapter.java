@@ -15,20 +15,21 @@ public class CourAdapter extends RecyclerView.Adapter<CourAdapter.MyViewHolder> 
 
 
 
-
+    private final RecycleViewInterface recycleViewInterface;
     Context context;
     ArrayList<Cour> List;
 
-    public CourAdapter(Context context, ArrayList<Cour> list) {
+    public CourAdapter(Context context, ArrayList<Cour> list ,RecycleViewInterface recycleViewInterface) {
         this.context = context;
         List = list;
+        this.recycleViewInterface=recycleViewInterface;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View v= LayoutInflater.from(context).inflate(R.layout.itemcour,parent,false);
-       return new MyViewHolder(v);
+       return new MyViewHolder(v,recycleViewInterface);
     }
 
     @Override
@@ -48,11 +49,25 @@ public class CourAdapter extends RecyclerView.Adapter<CourAdapter.MyViewHolder> 
 
         TextView courname,courdate;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface) {
 
             super(itemView);
             courname=itemView.findViewById(R.id.courname);
             courdate=itemView.findViewById(R.id.datecour);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (recycleViewInterface != null)
+                    {
+                        int pos= getAdapterPosition();
+                        if (pos != RecyclerView.NO_POSITION)
+                        {
+                            recycleViewInterface.OnItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }

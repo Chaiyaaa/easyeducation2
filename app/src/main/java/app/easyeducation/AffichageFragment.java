@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AffichageFragment extends Fragment {
+public class AffichageFragment extends Fragment implements RecycleViewInterface{
     Button post;
     RecyclerView affichagelistview;
     DatabaseReference database;
@@ -67,7 +68,7 @@ public class AffichageFragment extends Fragment {
         affichagelistview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         affichages=new ArrayList<>();
-        adapter =new AffichageAdapter(getActivity(),affichages);
+        adapter =new AffichageAdapter(getActivity(),affichages,this);
         affichagelistview.setAdapter(adapter);
 
         database.addValueEventListener(new ValueEventListener() {
@@ -96,5 +97,18 @@ public class AffichageFragment extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void OnItemClick(int position) {
+        Intent intent=new Intent(getActivity(),AffichageCheck.class);
+        Affichage selectedAffichage=affichages.get(position); //getting selected cour from list
+
+        intent.putExtra("Affichagename",selectedAffichage.getNom());
+        intent.putExtra("Affichagedate",selectedAffichage.getDate());
+        intent.putExtra("AffichageLink",selectedAffichage.getLien());
+        intent.putExtra("AffichageModule",selectedAffichage.getModule());
+
+        startActivity(intent);
     }
 }

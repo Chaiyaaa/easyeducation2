@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class TestFragment extends Fragment {
+public class TestFragment extends Fragment implements RecycleViewInterface{
     Button post;
     RecyclerView testlistview;
     DatabaseReference database;
@@ -86,7 +87,7 @@ public class TestFragment extends Fragment {
         testlistview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         tests=new ArrayList<>();
-        adapter =new TestAdapter(getActivity(),tests);
+        adapter =new TestAdapter(getActivity(),tests,this);
         testlistview.setAdapter(adapter);
 
         database.addValueEventListener(new ValueEventListener() {
@@ -115,5 +116,20 @@ public class TestFragment extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void OnItemClick(int position) {
+
+        Intent intent=new Intent(getActivity(),TestCheck.class);
+        Test selectedTest=tests.get(position); //getting selected test from list
+
+        intent.putExtra("Testname",selectedTest.getNom());
+        intent.putExtra("Testdate",selectedTest.getDate());
+        intent.putExtra("TestLink",selectedTest.getLien());
+        intent.putExtra("TestModule",selectedTest.getModule());
+
+        startActivity(intent);
+
     }
 }

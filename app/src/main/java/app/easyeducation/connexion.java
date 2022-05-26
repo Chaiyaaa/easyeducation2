@@ -97,6 +97,7 @@ public class connexion extends AppCompatActivity {
                     if (emailDb.equals(gmailEntered)) //check for the email
                     {
                         //correct email, we check password
+
                         if (snap.child("password").getValue().toString().equals(passwordEnterd))
                         {
 
@@ -111,6 +112,8 @@ public class connexion extends AppCompatActivity {
                                 SharedPreferences.Editor editor=sharedPreferences.edit();
 
                                 editor.putString("type","etud");  //key == type
+                                editor.putString("nomuser",snap.child("nom").getValue().toString());
+                                editor.putString("prenomuser",snap.child("prenom").getValue().toString());
                                 editor.apply();
 
 
@@ -121,6 +124,8 @@ public class connexion extends AppCompatActivity {
                                 SharedPreferences.Editor editor=sharedPreferences.edit();
 
                                 editor.putString("type","prof");  //key == type
+                                editor.putString("nomuser",snap.child("nom").toString());
+                                editor.putString("prenomuser",snap.child("prenom").toString());
                                 editor.apply();
                             }
                             startActivity(intent);

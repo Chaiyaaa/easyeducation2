@@ -13,6 +13,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AddTestAnswer"
+            android:exported="false" />
+        <activity
+            android:name=".AddDevoirAnswer"
+            android:exported="false" />
+        <activity
+            android:name=".AffichageCheck"
+            android:exported="false" />
+        <activity
+            android:name=".TestCheck"
+            android:exported="false" />
+        <activity
+            android:name=".DevoirsCheck"
+            android:exported="false" />
+        <activity
+            android:name=".CourCheck"
+            android:exported="false" />
+        <activity
             android:name=".AddNewAffichage"
             android:exported="false" />
         <activity
