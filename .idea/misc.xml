@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/selme/AndroidStudioProjects/easye/app/src/main/res/layout/activity_fragments_holder.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/selme/AndroidStudioProjects/easye/app/src/main/res/layout/connexion.xml" value="0.22826086956521738" />
+        <entry key="app/src/main/res/drawable/backgroundrounded.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/icon_affichage.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/icon_cour.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/icon_devoir.xml" value="0.2385" />
@@ -18,11 +19,13 @@
         <entry key="app/src/main/res/layout/activity_affichage_check.xml" value="0.25181159420289856" />
         <entry key="app/src/main/res/layout/activity_cour_check.xml" value="0.25181159420289856" />
         <entry key="app/src/main/res/layout/activity_devoirs_check.xml" value="0.25181159420289856" />
+        <entry key="app/src/main/res/layout/activity_diplay_test_answers.xml" value="0.25181159420289856" />
         <entry key="app/src/main/res/layout/activity_fragments_holder.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_test_check.xml" value="0.25181159420289856" />
         <entry key="app/src/main/res/layout/connexion.xml" value="0.22010869565217392" />
         <entry key="app/src/main/res/layout/devoirs.xml" value="0.22010869565217392" />
+        <entry key="app/src/main/res/layout/dialog_devoirtest.xml" value="0.25181159420289856" />
         <entry key="app/src/main/res/layout/fragment_affichage.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_cour.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_devoir.xml" value="0.2504528985507246" />

@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".DiplayTestAnswers"
+            android:exported="false" />
+        <activity
             android:name=".AddTestAnswer"
             android:exported="false" />
         <activity

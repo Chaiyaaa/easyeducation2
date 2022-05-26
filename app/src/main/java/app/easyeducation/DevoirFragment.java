@@ -1,5 +1,6 @@
 package app.easyeducation;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,7 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
     RecyclerView devoirlistview;
     DatabaseReference database;
     DevoirAdapter adapter;
+    ImageView inbox;
     ArrayList<Devoir> devoir;
 
     @Nullable
@@ -38,6 +41,7 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
         View view = inflater.inflate(R.layout.fragment_devoir, container, false);
 
         post=view.findViewById(R.id.postdevoir);
+        inbox=view.findViewById(R.id.inbox_devoir);
         database= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("Devoirs");
 
         devoirlistview =view.findViewById(R.id.recyclerViewdevoir);
@@ -72,6 +76,12 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
                     }
                 });
 
+                inbox.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showDialog();
+                    }
+                });
 
 
 
@@ -115,6 +125,29 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
 
 
         return view;
+    }
+
+    private void showDialog() {
+        Dialog dialog=new Dialog(getActivity());
+        dialog.setContentView(R.layout.dialog_devoirtest);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.backgroundrounded);
+        Button showtest=dialog.findViewById(R.id.tests);
+        Button showdevoirs=dialog.findViewById(R.id.devoirs);
+
+        showtest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"tests",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        showdevoirs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"devoirs",Toast.LENGTH_SHORT).show();
+            }
+        });
+        dialog.show();
     }
 
     @Override

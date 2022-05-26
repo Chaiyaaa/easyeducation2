@@ -1,5 +1,6 @@
 package app.easyeducation;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,7 +32,7 @@ public class AffichageFragment extends Fragment implements RecycleViewInterface{
     DatabaseReference database;
     AffichageAdapter adapter;
     ArrayList<Affichage> affichages;
-
+    ImageView inbox;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class AffichageFragment extends Fragment implements RecycleViewInterface{
 
         View view = inflater.inflate(R.layout.fragment_affichage, container, false);
         post=view.findViewById(R.id.postaffichage);
-
+        inbox=view.findViewById(R.id.inbox_affichage);
 
         database= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("Affichages");
 
@@ -63,6 +65,12 @@ public class AffichageFragment extends Fragment implements RecycleViewInterface{
 
 
 
+        inbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialog();
+            }
+        });
 
 
         affichagelistview.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -97,6 +105,30 @@ public class AffichageFragment extends Fragment implements RecycleViewInterface{
 
 
         return view;
+    }
+
+    private void openDialog() {
+
+        Dialog dialog=new Dialog(getActivity());
+        dialog.setContentView(R.layout.dialog_devoirtest);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.backgroundrounded);
+        Button showtest=dialog.findViewById(R.id.tests);
+        Button showdevoirs=dialog.findViewById(R.id.devoirs);
+
+        showtest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"tests",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        showdevoirs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"devoirs",Toast.LENGTH_SHORT).show();
+            }
+        });
+        dialog.show();
     }
 
     @Override

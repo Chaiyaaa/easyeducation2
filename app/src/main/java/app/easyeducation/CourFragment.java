@@ -1,5 +1,6 @@
 package app.easyeducation;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.graphics.drawable.TintAwareDrawable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +33,7 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
     DatabaseReference database;
     CourAdapter adapter;
     ArrayList<Cour> cours;
+    ImageView inbox;
     Button post;
     @Nullable
     @Override
@@ -42,6 +46,10 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
         post=view.findViewById(R.id.post);
 
         coursListview=view.findViewById(R.id.recyclerViewCour);
+        inbox=view.findViewById(R.id.inbox_cour);
+
+
+
 
 
 
@@ -62,6 +70,7 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
             else if (type.equals("prof"))
             {
 
+                post.setVisibility(View.VISIBLE);
 
                 post.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -74,6 +83,12 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
                     }
                 });
 
+                inbox.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showDialog();
+                    }
+                });
 
 
 
@@ -118,6 +133,29 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
 
 
         return view;
+    }
+
+    private void showDialog() {
+        Dialog dialog=new Dialog(getActivity());
+        dialog.setContentView(R.layout.dialog_devoirtest);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.backgroundrounded);
+        Button showtest=dialog.findViewById(R.id.tests);
+        Button showdevoirs=dialog.findViewById(R.id.devoirs);
+
+        showtest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"tests",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        showdevoirs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"devoirs",Toast.LENGTH_SHORT).show();
+            }
+        });
+        dialog.show();
     }
 
     @Override
