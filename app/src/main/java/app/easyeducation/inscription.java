@@ -127,6 +127,8 @@ public class inscription extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 Toast.makeText(getApplicationContext(),"Data saved successfully",Toast.LENGTH_SHORT).show();
+                Intent connexion = new Intent(getApplicationContext(), connexion.class);
+                startActivity(connexion);
             }
         });
     }
