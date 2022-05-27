@@ -57,9 +57,6 @@
         <activity
             android:name=".FragmentsHolder"
             android:exported="false" />
-        <activity
-            android:name=".singlerow"
-            android:exported="false" />
         <activity android:name=".inscription" />
         <activity android:name=".connexion" />
         <activity

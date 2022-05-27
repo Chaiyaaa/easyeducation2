@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     android:orientation="horizontal">
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_margin="2dp"
+        android:backgroundTint="@color/backgroundblue"
+        android:background="@drawable/custumborder"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
 
@@ -15,36 +19,48 @@
 
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-    <TextView
-        android:id="@+id/elevenomd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nom"
-        />
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/elevenomd"
+                android:layout_margin="5dp"
+                android:textColor="@color/orange"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nom"
+                />
 
-    <TextView
-        android:id="@+id/eleveprenomd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="prenom"
-        />
+            <TextView
+                android:id="@+id/eleveprenomd"
+                android:textColor="@color/orange"
+                android:layout_margin="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="prenom"
+                />
 
-    </LinearLayout>
+        </LinearLayout>
 
 
         <LinearLayout
             android:gravity="right"
+            android:textColor="@color/backgroundlight"
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
             <TextView
                 android:id="@+id/testnamed"
+                android:textColor="@color/backgroundlight"
+                android:layout_margin="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Test name"
@@ -52,6 +68,9 @@
 
             <TextView
                 android:id="@+id/datetestd"
+                android:textColor="@color/backgroundlight"
+                android:layout_margin="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00:00"

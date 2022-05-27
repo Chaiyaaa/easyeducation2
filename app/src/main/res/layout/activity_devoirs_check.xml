@@ -44,7 +44,7 @@
         android:background="@drawable/rounded_cornerlightblue"
 
         android:layout_marginBottom="20dp"
-        android:text="Reponse"
+        android:text="Repondre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

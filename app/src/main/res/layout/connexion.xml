@@ -46,47 +46,49 @@
         tools:ignore="MissingConstraints"
         android:drawableLeft="@drawable/iconpassword" />
 
+
     <TextView
         android:id="@+id/t1"
-        android:layout_width="176dp"
-        android:layout_height="20dp"
-        android:text="You don't have an account?"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="vous n'avez pas un compte?"
+
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <TextView
         android:id="@+id/Signup"
-        android:layout_width="72dp"
-        android:layout_height="20dp"
-        android:text="Sign Up"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S'inscrire"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/babyblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.765"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881" />
+        app:layout_constraintVertical_bias="0.95" />
 
     <Button
         android:id="@+id/signin"
-        android:layout_width="145dp"
+        android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:background="@drawable/rounded_corner"
-        android:text="Sign In"
+        android:text=" Se Connecter "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/backgroundlight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.798" />
-
 
     <ImageView
         android:id="@+id/imageView"

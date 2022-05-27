@@ -11,12 +11,12 @@
     <TextView
         android:id="@+id/textView8"
         android:layout_width="409dp"
-        android:layout_marginBottom="60dp"
         android:layout_height="34dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
+        android:layout_marginBottom="68dp"
         android:text="_________________________________________"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/orange"
@@ -39,35 +39,31 @@
 
     <Button
         android:id="@+id/cancel"
-        android:layout_width="182dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:background="@color/grey"
-        android:text="Annuler"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="228dp"
+        android:layout_marginRight="228dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_cornerlightblue"
+        android:text="annuler"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/share_test"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.997" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/share_test"
-        android:layout_width="186dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/orange"
-        android:text="envoyer"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/reply_icon"
+        android:text=" REPONDRE   "
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cancel"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.997" />
+        app:layout_constraintEnd_toEndOf="parent"  />
 
     <Button
         android:id="@+id/add_file_test"
