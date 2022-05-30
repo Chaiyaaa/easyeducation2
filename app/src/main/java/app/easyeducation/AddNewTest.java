@@ -136,7 +136,7 @@ public class AddNewTest extends AppCompatActivity {
                 databaseReference.push().setValue(test);
                 Toast.makeText(getApplicationContext(),"Succes",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
-                goBacktoCour();
+
 
 
             }

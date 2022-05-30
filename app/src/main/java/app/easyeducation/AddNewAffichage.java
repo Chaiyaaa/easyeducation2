@@ -122,7 +122,7 @@ public class AddNewAffichage extends AppCompatActivity {
                 databaseReference.push().setValue(affichage);
                 Toast.makeText(getApplicationContext(),"Succes",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
-                goBacktoCour();
+
 
 
             }

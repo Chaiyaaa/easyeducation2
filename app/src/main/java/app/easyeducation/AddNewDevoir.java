@@ -58,7 +58,7 @@ public class AddNewDevoir extends AppCompatActivity {
                 //disable button if there is no data
                 //add icon to show that data exists
                 UploadPDFToFirebase(dataHolder.getData());
-                goBacktoCour();
+
             }
         });
 
