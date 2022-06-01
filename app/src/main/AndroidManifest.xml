@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".CheckDevoirAnswer"
             android:exported="false" />
         <activity
@@ -60,7 +63,7 @@
         <activity android:name=".inscription" />
         <activity android:name=".connexion" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

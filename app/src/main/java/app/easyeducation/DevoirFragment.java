@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,8 +32,9 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
     RecyclerView devoirlistview;
     DatabaseReference database;
     DevoirAdapter adapter;
-    ImageView inbox;
+    FloatingActionButton inbox;
     ArrayList<Devoir> devoir;
+    Button logout;
 
     @Nullable
     @Override
@@ -45,7 +47,7 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
         database= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("Devoirs");
 
         devoirlistview =view.findViewById(R.id.recyclerViewdevoir);
-
+        logout=view.findViewById(R.id.logoutDev);
 
 
         String type="";
@@ -111,8 +113,6 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
                     Devoir devoiritem=snap.getValue(Devoir.class);
                     devoir.add(devoiritem);
                 }
-
-
                 adapter.notifyDataSetChanged();
             }
 
@@ -123,11 +123,36 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
         });
 
 
+    logout.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent=new Intent(getActivity(),connexion.class);
 
+            setLoggedout();
+            startActivity(intent);
+            getActivity().finish();
+        }
+    });
 
         return view;
     }
 
+
+
+    private void EmptySharedPref()
+    {
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
+
+    private void setLoggedout() {
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editor.putBoolean("hasLoggedIn",false);
+        editor.apply();
+    }
     private void showDialog() {
         Dialog dialog=new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog_devoirtest);

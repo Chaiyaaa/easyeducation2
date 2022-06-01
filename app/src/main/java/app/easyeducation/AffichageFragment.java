@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,12 +28,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AffichageFragment extends Fragment implements RecycleViewInterface{
-    Button post;
+    Button post,logout;
     RecyclerView affichagelistview;
     DatabaseReference database;
     AffichageAdapter adapter;
     ArrayList<Affichage> affichages;
-    ImageView inbox;
+    FloatingActionButton inbox;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class AffichageFragment extends Fragment implements RecycleViewInterface{
         View view = inflater.inflate(R.layout.fragment_affichage, container, false);
         post=view.findViewById(R.id.postaffichage);
         inbox=view.findViewById(R.id.inbox_affichage);
-
+        logout=view.findViewById(R.id.logoutAffich);
         database= FirebaseDatabase.getInstance().getReferenceFromUrl("https://easyeducation-80f1b-default-rtdb.firebaseio.com/").child("Affichages");
 
         affichagelistview =view.findViewById(R.id.recyclerViewaffichage);
@@ -129,9 +130,35 @@ public class AffichageFragment extends Fragment implements RecycleViewInterface{
         });
 
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),connexion.class);
+
+                setLoggedout();
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
 
         return view;
+    }
+
+    private void EmptySharedPref()
+    {
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
+
+
+    private void setLoggedout() {
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editor.putBoolean("hasLoggedIn",false);
+        editor.apply();
     }
 
     private void openDialog() {

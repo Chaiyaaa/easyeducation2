@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,8 +34,8 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
     DatabaseReference database;
     CourAdapter adapter;
     ArrayList<Cour> cours;
-    ImageView inbox;
-    Button post;
+    FloatingActionButton inbox;
+    Button post,logout;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
 
         coursListview=view.findViewById(R.id.recyclerViewCour);
         inbox=view.findViewById(R.id.inbox_cour);
-
+        logout=view.findViewById(R.id.logoutCour);
 
 
 
@@ -132,8 +133,25 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
         });
 
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),connexion.class);
+
+                setLoggedout();
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
         return view;
+    }
+
+    private void setLoggedout() {
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editor.putBoolean("hasLoggedIn",false);
+        editor.apply();
     }
 
     private void showDialog() {
@@ -162,6 +180,13 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
         dialog.show();
     }
 
+    private void EmptySharedPref()
+    {
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
     @Override
     public void OnItemClick(int position) {
 

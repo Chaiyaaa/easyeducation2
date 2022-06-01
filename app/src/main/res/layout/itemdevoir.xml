@@ -11,6 +11,7 @@
     >
 
     <LinearLayout
+        android:gravity="center"
         android:layout_margin="2dp"
         android:backgroundTint="@color/backgroundblue"
         android:background="@drawable/custumborder"

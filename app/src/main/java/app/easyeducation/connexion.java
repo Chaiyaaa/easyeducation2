@@ -26,6 +26,7 @@ import java.util.List;
 public class connexion extends AppCompatActivity {
     private TextView signup;
     private Button signin;
+
     private EditText mail,password;
     String passwordDb="";
     public User user;
@@ -128,6 +129,10 @@ public class connexion extends AppCompatActivity {
                                 editor.putString("prenomuser",snap.child("prenom").toString());
                                 editor.apply();
                             }
+                            SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            SharedPreferences.Editor editor =sharedPreferences.edit();
+                            editor.putBoolean("hasLoggedIn",true);
+                            editor.apply();
                             startActivity(intent);
                             finish();
                         }
