@@ -37,7 +37,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolder> 
         Test test=List.get(position);
         holder.testname.setText(test.getNom());
         holder.testdate.setText(test.getDate());
-
+        holder.module.setText(test.getModule());
 
     }
 
@@ -48,7 +48,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolder> 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView testname, testdate;
+        TextView testname, testdate,module;
 
 
         public MyViewHolder(@NonNull View itemView,RecycleViewInterface recycleViewInterface) {
@@ -56,7 +56,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolder> 
             super(itemView);
             testname =itemView.findViewById(R.id.testname);
             testdate =itemView.findViewById(R.id.datetest);
-
+            module=itemView.findViewById(R.id.modulename_test);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

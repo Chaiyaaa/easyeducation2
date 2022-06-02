@@ -8,10 +8,12 @@
         <entry key="app/src/main/res/drawable/backgroundrounded.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/custumborder.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/download_icon.xml" value="0.225" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/icon_affichage.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/icon_cour.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/icon_devoir.xml" value="0.2385" />
         <entry key="app/src/main/res/drawable/icon_test.xml" value="0.2385" />
+        <entry key="app/src/main/res/drawable/level_icon.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/logout_icon.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/reply_icon.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/rounded_cornerlightblue.xml" value="0.225" />
@@ -37,6 +39,7 @@
         <entry key="app/src/main/res/layout/connexion.xml" value="0.22010869565217392" />
         <entry key="app/src/main/res/layout/devoirs.xml" value="0.22010869565217392" />
         <entry key="app/src/main/res/layout/dialog_devoirtest.xml" value="0.25181159420289856" />
+        <entry key="app/src/main/res/layout/dialog_disconnect.xml" value="0.25181159420289856" />
         <entry key="app/src/main/res/layout/fragment_affichage.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_cour.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_devoir.xml" value="0.2504528985507246" />

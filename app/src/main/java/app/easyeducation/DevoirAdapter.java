@@ -37,7 +37,7 @@ public class DevoirAdapter extends RecyclerView.Adapter<DevoirAdapter.MyViewHold
         Devoir devoir=List.get(position);
         holder.devoirname.setText(devoir.getNom());
         holder.devoirdate.setText(devoir.getDate());
-
+        holder.module.setText(devoir.getModule());
 
     }
 
@@ -48,7 +48,7 @@ public class DevoirAdapter extends RecyclerView.Adapter<DevoirAdapter.MyViewHold
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView devoirname,devoirdate;
+        TextView devoirname,devoirdate,module;
 
 
         public MyViewHolder(@NonNull View itemView,RecycleViewInterface recycleViewInterface) {
@@ -56,6 +56,7 @@ public class DevoirAdapter extends RecyclerView.Adapter<DevoirAdapter.MyViewHold
             super(itemView);
             devoirname=itemView.findViewById(R.id.devoirname);
             devoirdate=itemView.findViewById(R.id.datedevoir);
+            module=itemView.findViewById(R.id.modulename_devoir);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

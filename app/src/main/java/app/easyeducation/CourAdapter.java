@@ -37,7 +37,7 @@ public class CourAdapter extends RecyclerView.Adapter<CourAdapter.MyViewHolder> 
         Cour cour=List.get(position);
         holder.courname.setText(cour.getNom());
         holder.courdate.setText(cour.getDate());
-
+        holder.module.setText(cour.getModule());
     }
 
     @Override
@@ -47,13 +47,14 @@ public class CourAdapter extends RecyclerView.Adapter<CourAdapter.MyViewHolder> 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView courname,courdate;
+        TextView courname,courdate,module;
 
         public MyViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface) {
 
             super(itemView);
             courname=itemView.findViewById(R.id.courname);
             courdate=itemView.findViewById(R.id.datecour);
+            module=itemView.findViewById(R.id.modulename_cour);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

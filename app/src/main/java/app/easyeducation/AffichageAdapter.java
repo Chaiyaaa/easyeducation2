@@ -39,7 +39,7 @@ public class AffichageAdapter extends RecyclerView.Adapter<AffichageAdapter.MyVi
 
         holder.affichagename.setText(affichage.getNom());
         holder.affichagedate.setText(affichage.getDate());
-
+        holder.module.setText(affichage.getModule());
 
     }
 
@@ -50,7 +50,7 @@ public class AffichageAdapter extends RecyclerView.Adapter<AffichageAdapter.MyVi
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView affichagename, affichagedate;
+        TextView affichagename, affichagedate,module;
 
 
         public MyViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface) {
@@ -58,6 +58,7 @@ public class AffichageAdapter extends RecyclerView.Adapter<AffichageAdapter.MyVi
             super(itemView);
             affichagename =itemView.findViewById(R.id.affichagename);
             affichagedate =itemView.findViewById(R.id.dateaffichage);
+            module=itemView.findViewById(R.id.modulename_affichage);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

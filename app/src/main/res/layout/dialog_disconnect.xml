@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:layout_margin="20dp"
+
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Que choisissez vous ?"
+        android:textSize="22sp"
+        android:textColor="@color/backgroundlight"
+        android:textStyle="bold"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/logout"
+            android:drawableLeft="@drawable/logout_white"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/orange"
+            android:layout_margin="10dp"
+            android:text="deconnecter"
+            android:textColor="#FFFF"
+            />
+
+
+        <Button
+            android:id="@+id/levels"
+            android:layout_width="150dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundlight"
+            android:text="les niveaux"
+            android:drawableLeft="@drawable/level_icon"
+
+            />
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

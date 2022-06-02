@@ -18,25 +18,35 @@
         android:gravity="center"
         android:orientation="vertical"
         >
+
+        <TextView
+            android:id="@+id/modulename_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/orange"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Module name" />
+
         <TextView
             android:id="@+id/testname"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_margin="5dp"
-            android:textColor="@color/orange"
+            android:textColor="@color/backgroundlight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Test name"
             />
 
         <TextView
-            android:layout_margin="5dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:id="@+id/datetest"
-            android:textColor="@color/backgroundlight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="00:00"
-            />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/backgroundlight" />
 
     </LinearLayout>
 

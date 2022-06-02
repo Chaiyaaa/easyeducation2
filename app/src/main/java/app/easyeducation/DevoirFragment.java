@@ -127,17 +127,43 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
     logout.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent=new Intent(getActivity(),connexion.class);
 
-            setLoggedout();
-            startActivity(intent);
-            getActivity().finish();
+
+            ShowDialogLogout();
         }
     });
 
         return view;
     }
 
+    private void ShowDialogLogout() {
+        Dialog dialog=new Dialog(getActivity());
+        dialog.setContentView(R.layout.dialog_disconnect);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.backgroundrounded);
+        Button logout=dialog.findViewById(R.id.logout);
+        Button levels=dialog.findViewById(R.id.levels);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),connexion.class);
+                setLoggedout();
+                startActivity(intent);
+                getActivity().finish();
+
+            }
+        });
+
+        levels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ChooseLevel.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+        dialog.show();
+    }
 
 
     private void EmptySharedPref()

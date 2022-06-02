@@ -19,10 +19,21 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+
+        <TextView
+            android:id="@+id/modulename_devoir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/orange"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Module name" />
+
         <TextView
             android:id="@+id/devoirname"
             android:layout_margin="5dp"
-            android:textColor="@color/orange"
+            android:textColor="@color/backgroundlight"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
