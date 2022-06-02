@@ -46,7 +46,6 @@
             android:backgroundTint="@color/backgroundlight"
             android:text="les niveaux"
             android:drawableLeft="@drawable/level_icon"
-
             />
     </LinearLayout>
 

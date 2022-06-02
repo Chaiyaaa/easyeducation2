@@ -28,7 +28,7 @@ import java.util.Locale;
 public class AddDevoirAnswer extends AppCompatActivity {
     Button add,share;
     Intent dataHolder;
-    TextView devoirname;
+    TextView devoirname,modulename;
     StorageReference storageReference;
     DatabaseReference databaseReference;
     String name,date,module,usernom,userprenom;
@@ -48,7 +48,7 @@ public class AddDevoirAnswer extends AppCompatActivity {
 
 
         devoirname.setText(name);
-
+        modulename.setText(module);
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor=sharedPreferences.edit();
         usernom=sharedPreferences.getString("nomuser","");
@@ -80,6 +80,7 @@ public class AddDevoirAnswer extends AppCompatActivity {
         add=findViewById(R.id.add_file_devoir);
         share=findViewById(R.id.share_devoir);
         devoirname=findViewById(R.id.devoir_name_replyed);
+        modulename=findViewById(R.id.modulename_adddevoiranswer);
     }
 
 

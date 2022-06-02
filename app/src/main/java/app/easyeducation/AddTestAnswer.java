@@ -34,7 +34,7 @@ public class AddTestAnswer extends AppCompatActivity {
     StorageReference storageReference;
     DatabaseReference databaseReference;
     String name,date,module,usernom,userprenom;
-    TextView testname;
+    TextView testname,modulename;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +47,9 @@ public class AddTestAnswer extends AppCompatActivity {
          date = extras.getString("Testdate");
          module = extras.getString("TestModule");
 
-         testname.setText(name);
 
+         testname.setText(name);
+        modulename.setText(module);
 
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor=sharedPreferences.edit();
@@ -82,6 +83,7 @@ public class AddTestAnswer extends AppCompatActivity {
         add=findViewById(R.id.add_file_test);
         share=findViewById(R.id.share_test);
         testname=findViewById(R.id.test_name_replyed);
+        modulename=findViewById(R.id.modulename_addtestanswer);
     }
 
 

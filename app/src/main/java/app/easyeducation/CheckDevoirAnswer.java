@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class CheckDevoirAnswer extends AppCompatActivity {
-    TextView devoir,elevenom;
+    TextView devoir,elevenom,modulename;
     Button download;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class CheckDevoirAnswer extends AppCompatActivity {
 
 
         devoir.setText(TestName);
+
         elevenom.setText(elevename+" "+prename);
 
         download.setOnClickListener(new View.OnClickListener() {

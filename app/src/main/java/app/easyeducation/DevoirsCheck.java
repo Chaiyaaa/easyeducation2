@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class DevoirsCheck extends AppCompatActivity {
-    TextView devoirname;
+    TextView devoirname,modulename;
     Button download,reply;
 
     @Override
@@ -29,7 +29,7 @@ public class DevoirsCheck extends AppCompatActivity {
         String module = extras.getString("DevoirModule");
 
         devoirname.setText(name);
-
+        modulename.setText(module);
 
 
 
@@ -67,6 +67,7 @@ public class DevoirsCheck extends AppCompatActivity {
         devoirname =findViewById(R.id.devoirnamecheck);
         download=findViewById(R.id.downloaddevoir);
         reply=findViewById(R.id.replydevoir);
+        modulename=findViewById(R.id.modulename_devoircheck);
     }
 
     }

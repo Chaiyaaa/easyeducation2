@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.net.URI;
 
 public class CourCheck extends AppCompatActivity {
-    TextView courname;
+    TextView courname,modulename;
     Button download;
 
     @Override
@@ -34,7 +34,7 @@ public class CourCheck extends AppCompatActivity {
 
         String niveau=sharedPreferences.getString("niveau","");
         courname.setText(name);
-
+        modulename.setText(module);
 
 
 
@@ -58,5 +58,6 @@ public class CourCheck extends AppCompatActivity {
 
         courname=findViewById(R.id.cournamecheck);
         download=findViewById(R.id.downloadcour);
+        modulename=findViewById(R.id.modulename_courcheck);
     }
 }
