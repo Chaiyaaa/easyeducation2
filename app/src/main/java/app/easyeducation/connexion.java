@@ -103,7 +103,7 @@ public class connexion extends AppCompatActivity {
                         {
 
                             String emptyword="type";
-                            Intent intent=new Intent(connexion.this,FragmentsHolder.class);
+                            Intent intent=new Intent(connexion.this,ChooseLevel.class);
                             //verf
                             if (snap.child("type").getValue().toString().equals("1"))
                             {

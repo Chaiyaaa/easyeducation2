@@ -59,6 +59,8 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
         SharedPreferences.Editor editor=sharedPreferences.edit();
 
+        Toast.makeText(getActivity(), sharedPreferences.getString("niveau",""),Toast.LENGTH_LONG).show();
+
         if (sharedPreferences.contains("type"))
         {
 
@@ -119,6 +121,7 @@ public class CourFragment extends Fragment implements RecycleViewInterface{
                 {
 
                     Cour cour=snap.getValue(Cour.class);
+                    if (sharedPreferences.getString("niveau", "").equals(cour.getNiveau()))
                     cours.add(cour);
                 }
 

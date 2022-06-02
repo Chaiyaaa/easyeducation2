@@ -115,6 +115,7 @@ public class AffichageFragment extends Fragment implements RecycleViewInterface{
                 {
 
                     Affichage affichageitem=snap.getValue(Affichage.class);
+                    if (sharedPreferences.getString("niveau", "").equals(affichageitem.getNiveau()))
                     affichages.add(affichageitem);
 
                 }

@@ -20,7 +20,6 @@ public class FragmentsHolder extends AppCompatActivity {
 
        //initWidget
         Navbar=findViewById(R.id.bottomNav);
-
         Navbar.setOnNavigationItemSelectedListener(navListener);
 
         //this one is to open cour as first fragment

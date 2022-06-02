@@ -111,6 +111,7 @@ public class DevoirFragment extends Fragment implements RecycleViewInterface{
                 {
 
                     Devoir devoiritem=snap.getValue(Devoir.class);
+                    if (sharedPreferences.getString("niveau", "").equals(devoiritem.getNiveau()))
                     devoir.add(devoiritem);
                 }
                 adapter.notifyDataSetChanged();

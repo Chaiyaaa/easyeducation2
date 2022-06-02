@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -127,11 +129,11 @@ public class AddNewTest extends AppCompatActivity {
                 Task<Uri> uriTask=taskSnapshot.getStorage().getDownloadUrl();
                 while (!uriTask.isComplete());
                 Uri uri=uriTask.getResult();
-
+                String niveau=getNiveau();
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
 
-                Test test=new Test(cour_name.getText().toString(),currentDate,uri.toString(),module_name.getText().toString());
+                Test test=new Test(cour_name.getText().toString(),currentDate,uri.toString(),module_name.getText().toString(),niveau);
 
                 databaseReference.push().setValue(test);
                 Toast.makeText(getApplicationContext(),"Succes",Toast.LENGTH_LONG).show();
@@ -148,4 +150,10 @@ public class AddNewTest extends AppCompatActivity {
                 progressDialog.setMessage("file Uploaded .. "+(int) progress+"%");
             }
         });
-}}
+}
+
+    private String getNiveau() {
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        return sharedPreferences.getString("niveau","");
+    }
+}

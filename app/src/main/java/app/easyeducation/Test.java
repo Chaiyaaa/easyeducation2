@@ -6,12 +6,13 @@ public class Test {
     public String date;
     public String lien;
     public String module;
-
-    public Test(String nom, String date, String lien, String module) {
+    public String niveau;
+    public Test(String nom, String date, String lien, String module,String niveau) {
         this.nom = nom;
         this.date = date;
         this.lien = lien;
         this.module = module;
+        this.niveau=niveau;
     }
 
     public Test() {
@@ -47,6 +48,14 @@ public class Test {
 
     public void setModule(String module) {
         this.module = module;
+    }
+
+    public String getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(String niveau) {
+        this.niveau = niveau;
     }
 
     @Override

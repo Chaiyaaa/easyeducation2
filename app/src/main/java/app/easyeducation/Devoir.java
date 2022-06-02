@@ -6,12 +6,14 @@ public class Devoir {
     public String date;
     public String lien;
     public String module;
+    public String niveau;
 
-    public Devoir(String nom, String date, String lien, String module) {
+    public Devoir(String nom, String date, String lien, String module,String niveau) {
         this.nom = nom;
         this.date = date;
         this.lien = lien;
         this.module = module;
+        this.niveau=niveau;
     }
 
     public Devoir() {
@@ -49,6 +51,14 @@ public class Devoir {
         this.module = module;
     }
 
+    public String getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(String niveau) {
+        this.niveau = niveau;
+    }
+
     @Override
     public String toString() {
         return "Devoir{" +
@@ -56,6 +66,7 @@ public class Devoir {
                 ", date='" + date + '\'' +
                 ", lien='" + lien + '\'' +
                 ", module='" + module + '\'' +
+                ", niveau='" + niveau + '\'' +
                 '}';
     }
 }

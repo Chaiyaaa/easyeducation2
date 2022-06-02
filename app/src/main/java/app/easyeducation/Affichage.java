@@ -6,15 +6,25 @@ public class Affichage {
     public String date;
     public String lien;
     public String module;
+    public String niveau;
 
-    public Affichage(String nom, String date, String lien, String module) {
+    public Affichage(String nom, String date, String lien, String module,String niveau) {
         this.nom = nom;
         this.date = date;
         this.lien = lien;
         this.module = module;
+        this.niveau=niveau;
     }
 
     public Affichage() {
+    }
+
+    public String getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(String niveau) {
+        this.niveau = niveau;
     }
 
     public String getNom() {

@@ -6,15 +6,25 @@ public class Cour {
     public String date;
     public String lien;
     public String module;
+    public String niveau;
 
-    public Cour(String nom, String date, String lien,String module) {
+    public Cour(String nom, String date, String lien,String module,String niveau) {
         this.nom = nom;
         this.date = date;
         this.lien = lien;
         this.module= module;
+        this.niveau=niveau;
     }
 
     public Cour() {
+    }
+
+    public String getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(String niveau) {
+        this.niveau = niveau;
     }
 
     public String getNom() {
@@ -56,6 +66,7 @@ public class Cour {
                 ", date='" + date + '\'' +
                 ", lien='" + lien + '\'' +
                 ", module='" + module + '\'' +
+                ", niveau='" + niveau + '\'' +
                 '}';
     }
 }

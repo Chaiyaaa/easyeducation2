@@ -110,7 +110,7 @@ public class TestFragment extends Fragment implements RecycleViewInterface{
                 {
 
                     Test testitem=snap.getValue(Test.class);
-
+                    if (sharedPreferences.getString("niveau", "").equals(testitem.getNiveau()))
                     tests.add(testitem);
                 }
 

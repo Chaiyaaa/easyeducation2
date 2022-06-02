@@ -3,8 +3,10 @@ package app.easyeducation;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,13 +25,14 @@ public class CourCheck extends AppCompatActivity {
 
         initWidget();
 
-
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Bundle extras=getIntent().getExtras();
         String name = extras.getString("Courname");
         String date = extras.getString("Courdate");
         String link = extras.getString("CourLink");
         String module = extras.getString("CourModule");
 
+        String niveau=sharedPreferences.getString("niveau","");
         courname.setText(name);
 
 
@@ -38,7 +41,7 @@ public class CourCheck extends AppCompatActivity {
         download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Cour cour=new Cour(name,date,link,module);
+                Cour cour=new Cour(name,date,link,module,niveau);
                 Intent intent=new Intent(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.parse(link),"application/pdf");
                 startActivity(intent);

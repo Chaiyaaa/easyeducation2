@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +25,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -111,10 +112,9 @@ public class AddNewCour extends AppCompatActivity {
                 Task<Uri> uriTask=taskSnapshot.getStorage().getDownloadUrl();
                 while (!uriTask.isComplete());
                 Uri uri=uriTask.getResult();
-
+                String niveau=getNiveau();
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-
-                Cour cour=new Cour(cour_name.getText().toString(),currentDate,uri.toString(),module_name.getText().toString()); //change this
+                Cour cour=new Cour(cour_name.getText().toString(),currentDate,uri.toString(),module_name.getText().toString(),niveau); //change this
                 databaseReference.push().setValue(cour);
                 Toast.makeText(getApplicationContext(),"Succes",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
@@ -130,6 +130,11 @@ public class AddNewCour extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String getNiveau() {
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        return sharedPreferences.getString("niveau","");
     }
 
     private void initWidget() {
